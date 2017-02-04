@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redux basic example</title>
+    <!--STEP 1.1-->
+    <script src="https://npmcdn.com/redux@latest/dist/redux.min.js"></script>
+    <!--~end STEP 1.1-->
+  </head>
+  <body>
+    <div>
+      <p>
+        Clicked: <span id="value">0</span> times
+        <button id="decrement">Decrease</button>
+        <button id="incrementAsync">Increment async</button>
+        <button id="random">Increment random</button>
+      </p>
+    </div>
+    <script>
+      // step 1.2
+      
+      // ~end step 1.2
+      // step 1.3
+      
+      // ~end step 1.3
+      
+      // step 2.2
+      
+      //~end step 2.2
+      
+    </script>
+    <script>
+    var spanValue = document.getElementById("value");
+
+    var changeColor = function(number){
+      spanValue.style.fontWeight = "normal";
+      spanValue.style.color = "red";
+      if( number > 10 ) {
+        spanValue.style.color = "blue";
+      } else if( number < 0 ) {
+        spanValue.style.fontWeight = "bold";
+      }
+    }
+
+    document.getElementById("decrement").addEventListener("click", function(){
+      var times = parseInt(spanValue.textContent);
+      times--;
+      spanValue.textContent = times;
+      changeColor(times);
+    });
+    document.getElementById("incrementAsync").addEventListener("click", function(){
+      var times = parseInt(spanValue.textContent);
+      setTimeout(function(){
+        times++;
+        spanValue.textContent = times;
+        changeColor(times);
+      }, Math.floor(Math.random() * (2000 - 1000) + 1000));
+    });
+     document.getElementById("random").addEventListener("click", function(){
+      var number = Math.floor(Math.random() * (10 - 1) + 1);
+      spanValue.textContent = number;
+      changeColor(number);
+    });
+    </script>
+  </body>
+</html>
